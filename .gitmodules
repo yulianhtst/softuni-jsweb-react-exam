@@ -1,0 +1,3 @@
+[submodule "softuni-practice-server"]
+	path = softuni-practice-server
+	url = https://github.com/softuni-practice-server/softuni-practice-server.git
