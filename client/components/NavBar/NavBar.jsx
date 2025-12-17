@@ -2,8 +2,7 @@ import { Button, AppBar, Toolbar } from "@mui/material"
 import { Link } from "react-router-dom";
 import { COLORS, FONTS } from "../../constants/theme.js";
 
-export default function NavBar(props) {
-    console.log(props);
+export default function NavBar({ open, handleOpen }) {
 
     return (
         <AppBar position="static" sx={{ mb: '1.6rem' }}>
@@ -21,6 +20,14 @@ export default function NavBar(props) {
                     sx={buttonStyles}
                 >
                     About
+                </Button>
+                <Button
+                    component={Link}
+                    to="/register"
+                    sx={buttonStyles}
+                    onClick={() => handleOpen()}
+                >
+                    Register
                 </Button>
             </Toolbar>
         </AppBar>
