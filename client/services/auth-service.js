@@ -5,14 +5,12 @@ export const register = async (data) => {
         method: "POST",
         body: JSON.stringify(data),
     });
-
-    return newUser;
+    return newUser.json();
 };
 export const login = async (data) => {
     const loggedUser = await fetch(`${BASE_URL}/users/login`, {
         method: "POST",
         body: JSON.stringify(data),
     });
-
-    return loggedUser;
+    return loggedUser.json();
 };

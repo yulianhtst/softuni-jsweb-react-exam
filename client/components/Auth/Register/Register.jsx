@@ -1,7 +1,8 @@
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { register } from "../../../services/auth-service.js"
+import { AuthContext } from "../../../contexts/auth-context.js";
 
 export default function Register({ open, handleClose }) {
     const [email, setEmail] = useState('')
@@ -12,6 +13,8 @@ export default function Register({ open, handleClose }) {
     const [isEmailWrong, setIsEmailWrong] = useState(false)
     const [isPasswordWrong, setIsPasswordWrong] = useState(false)
     const [isRepassWrong, setIsRepassWrong] = useState(false)
+
+    const { setAuthUser, user } = useContext(AuthContext)
 
     const checkEmail = function () {
         const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,10 +52,13 @@ export default function Register({ open, handleClose }) {
 
         if (!emailValid || !passwordValid || !repassValid) return;
 
+        const data = await register({ email, password })
 
+        console.log(data.accessToken);
+
+
+        setAuthUser(data.accessToken)
         handleClose();
-
-
     }
 
     return (
@@ -64,6 +70,7 @@ export default function Register({ open, handleClose }) {
                     </Button>
 
                     <TextField
+                        name="email"
                         sx={{ mt: 2 }}
                         error={isEmailWrong}
                         onBlur={checkEmail}
@@ -75,6 +82,7 @@ export default function Register({ open, handleClose }) {
                     />
 
                     <TextField
+                        name="password"
                         sx={{ mt: 2 }}
                         error={isPasswordWrong}
                         onBlur={checkPassword}
