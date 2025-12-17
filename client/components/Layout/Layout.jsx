@@ -10,9 +10,15 @@ export default function Layout({ children }) {
                 alignItems: "center",
                 justifyContent: "center",
                 bgcolor: "grey",
-                m:"0 auto"
+                m: "0 auto"
             }}>
-            {children}
+            <Box
+                maxWidth="1500px"
+                textAlign="center"
+                marginBottom="auto"
+            >
+                {children}
+            </Box>
         </Box>
     );
 }

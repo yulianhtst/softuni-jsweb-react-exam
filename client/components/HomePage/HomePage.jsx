@@ -3,11 +3,7 @@ import { COLORS } from "../../constants/theme.js";
 
 export default function HomePage() {
     return (
-        <Box
-            maxWidth="1500px"
-            textAlign="center"
-            marginBottom="auto"
-        >
+<>
             <Typography
                 variant="h3"
             >
@@ -28,6 +24,6 @@ export default function HomePage() {
             >
                 Test
             </Button>
-        </Box>
+            </>
     )
 }
