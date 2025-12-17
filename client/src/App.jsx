@@ -1,33 +1,17 @@
-import { Box, Button, Container, Typography } from "@mui/material";
-import { COLORS, FONTS } from "../constants/theme.js";
+import NavBar from "../components/NavBar/NavBar.jsx";
+import HomePage from "../components/HomePage/HomePage.jsx"
+import { Route, Routes } from "react-router";
+
 
 function App() {
   return (
-    <Box
-      maxWidth="1500px"
-      textAlign="center"
-    >
-      <Typography
-        variant="h3"
-      >
-        Lorem ipsum dolor sit amet.
-      </Typography>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
 
-      <Typography
-        color={COLORS.primary}
-        sx={{ mb: 3 }}
-        wrap
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sed, 
-      </Typography>
-
-      <Button
-        variant="contained"
-        size="large"
-      >
-        Test
-      </Button>
-    </Box>
+    </>
   );
 }
 

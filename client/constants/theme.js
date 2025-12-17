@@ -1,6 +1,6 @@
 export const COLORS = {
-    primary: "#2563eb", // blue-600
-    secondary: "#64748b", // slate-500
+    primary: "#2563eb",
+    secondary: "white",
     success: "#16a34a",
     danger: "#dc2626",
     warning: "#f59e0b",
